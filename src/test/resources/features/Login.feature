@@ -1,6 +1,8 @@
+@Login
 Feature: Login Automation Test
   Validate the different scenarios of the login screen
 
+  @useTagTest
   Scenario Outline: Verify user login with offer
     Given I enter the "<email>" email and "<password>" password
     When  I press LOGIN button
