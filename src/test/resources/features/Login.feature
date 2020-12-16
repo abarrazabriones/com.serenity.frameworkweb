@@ -15,8 +15,3 @@ Feature: Login Automation Test
       | conoferta20201119-03003@sso.tapit.conoferta.com | Prueba1234        |
       | conoferta20201119-03004@sso.tapit.conoferta.com | Prueba1234        |
       | conoferta20201119-03005@sso.tapit.conoferta.com | Prueba1234        |
-      | conoferta20201119-03006@sso.tapit.conoferta.com | Prueba1234        |
-      | conoferta20201119-03007@sso.tapit.conoferta.com | Prueba1234        |
-      | conoferta20201119-03008@sso.tapit.conoferta.com | Prueba1234        |
-      | conoferta20201119-03009@sso.tapit.conoferta.com | Prueba1234        |
-      | conoferta20201119-03010@sso.tapit.conoferta.com | Prueba1234        |
