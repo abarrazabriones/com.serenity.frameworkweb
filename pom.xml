@@ -94,14 +94,15 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <includes>
-                        <include>**/*Runner.java</include>
+                        <include>com.serenity.web.*Runner.java</include>
                     </includes>
+                    <argLine>-Xmx1024m</argLine>
+                    <perCoreThreadCount>true</perCoreThreadCount>
+                    <forkCount>2</forkCount>
+                    <reuseForks>true</reuseForks>
                     <systemPropertyVariables>
-                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                        <webdriver.driver>${webdriver.driver}</webdriver.driver>
                     </systemPropertyVariables>
-                    <parallel>classes</parallel>
-                    <parallel>methods</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
                 <executions>
                     <execution>
@@ -147,4 +148,51 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>device</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                        <configuration>
+                            <includes>
+                                <include>com.serenity.web.*Runner.java</include>
+                            </includes>
+                            <reuseForks>true</reuseForks>
+                            <systemPropertyVariables>
+                                <environment>single</environment>
+                                <taskID>MY_TEST_SCHEMA_${surefire.forkNumber}</taskID>
+                                <enableSerenity>true</enableSerenity>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>parallel</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                        <configuration>
+                            <includes>
+                                <include>com.serenity.web.Parallel*.java</include>
+                            </includes>
+                            <systemPropertyVariables>
+                                <enableSerenity>true</enableSerenity>
+                            </systemPropertyVariables>
+                            <parallel>suitesAndClasses</parallel>
+                            <threadCount>2</threadCount>
+                            <forkCount>2</forkCount>
+                            <reuseForks>true</reuseForks>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

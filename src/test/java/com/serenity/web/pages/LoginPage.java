@@ -1,6 +1,5 @@
 package com.serenity.web.pages;
 
-import com.serenity.web.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -11,19 +10,19 @@ public class LoginPage extends BasePage {
      */
 
     //Email field
-    @FindBy(xpath="/html/body/app-root/app-login/div/div/form/div[1]/input")
+    @FindBy(id="email")
     private WebElement emailField;
 
     //Password field
-    @FindBy(xpath="/html/body/app-root/app-login/div/div/form/div[2]/div/input")
+    @FindBy(id="password")
     private WebElement passwordField;
 
     //LOGIN button
-    @FindBy(xpath="/html/body/app-root/app-login/div/div/form/button")
+    @FindBy(xpath="//button[@type='submit']")
     private WebElement loginButton;
 
     //Response Login
-    @FindBy(xpath="/html/body/p")
+    @FindBy(xpath="//p[@class='z-50 fixed top-0 left-0']")
     private WebElement responseLogin;
 
     /**

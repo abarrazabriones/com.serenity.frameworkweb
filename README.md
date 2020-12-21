@@ -87,10 +87,15 @@ You use the `environment` system property to determine which environment to run 
 $ mvn clean verify -Denvironment=staging
 ```
 
-### Comando ejecución considerando ambiente, navegador y tag
+### No parallelism - Execution command considering environment, browser and tag
 ```
-$ mvn clean verify -Denvironment=dev -Ddriver=chrome -Dcucumber.filter.tags="@useTagTest"
+$ mvn clean verify -P single -Denvironment=testing -Ddriver=chrome -Dcucumber.filter.tags="@useTagTest"
 
 ```
 
+### With parallelism - Execution command considering environment, browser and tag
+```
+$ mvn clean verify -P parallel -Denvironment=testing -Ddriver=chrome -Dcucumber.filter.tags="@useTagTest"
+
+```
 
